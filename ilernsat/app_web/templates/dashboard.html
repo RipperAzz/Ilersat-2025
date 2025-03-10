@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Lora</title>
+</head>
+<body>
+    <div class="chat_board">
+        <h4>Chat Lora</h4>
+        <div class="chat-messages">
+            <form action="/send_message" method="post">
+                <label for="message">Escribe aqui</label>
+                <input id="message" name="message" placeholder="Hola...">
+                <button class="send" type="submit">Enter</button>
+            </form>
+        </div>
+        <label for="text_chat">Chat</label>
+        <div class="text_chat">{{msg}}</div>
+    </div>
+</body>
+</html>
