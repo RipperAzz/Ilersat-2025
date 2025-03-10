@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Punto de Acceso</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>PUNTO DE ACCESO</h2>
+
+    <div class="acceso-container">
+        <div class="campo">
+            <label>IP</label>
+            <div class="info">{{ ip }}</div>
+        </div>
+        <div class="campo">
+            <label>PORT</label>
+            <div class="info">{{ port }}</div>
+        </div>
+
+        <div class="estado">
+            <span>OFF</span>
+            <div class="switch-indicador on"></div>
+            <span>ON</span>
+        </div>
+        <div>
+        <form action="/close_conection">
+            <button class="go_back" type="submit"> > </button>
+        </form>
+        </div>
+        <div>
+            <form action="/go_dashboard">
+                <button class="go_dash" type="submit">Go dah</button>
+            </form>
+        </div>
+
+        
+    </div>
+</body>
+</html>
