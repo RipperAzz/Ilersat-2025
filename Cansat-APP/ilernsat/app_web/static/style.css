@@ -1,0 +1,91 @@
+body {
+    background-color: #dcdcdc;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 50px;
+    color: #1f2f29;
+}
+
+h1, h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.crear-btn {
+    background-color: #b6e7d5;
+    padding: 20px 40px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.crear-btn:hover {
+    background-color: #9cd7c1;
+}
+
+.conexion-container, .acceso-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.switch-indicador {
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    border: 2px solid #000;
+    position: relative;
+}
+
+.switch-indicador::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: red;
+    transition: 0.3s ease;
+    left: 2px;
+}
+
+.switch-indicador.on::before {
+    background-color: #00e676;
+    left: 20px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.campo label {
+    background-color: #e0f7fa;
+    border: 2px solid #00bcd4;
+    padding: 10px 15px;
+    border-radius: 12px 0 0 12px;
+    font-weight: bold;
+}
+
+.campo .info {
+    background-color: #f1fff7;
+    border: 2px solid #69f0ae;
+    padding: 10px 20px;
+    border-radius: 0 12px 12px 0;
+    min-width: 160px;
+}
