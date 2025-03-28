@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Lora</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        var data;
+        var options;
+        var chart;
+
+        function drawChart() {
+            data = new google.visualization.DataTable();
+            data.addColumn('number', 'Tiempo');
+            data.addColumn('number', 'Valor');
+
+            chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            options = { title: 'Gráfic Temperatura', curveType: 'function', legend: { position: 'bottom' } };
+
+            setInterval(updateChart, 300);
+        }
+
+        function updateChart() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(points => {
+                    data = new google.visualization.DataTable();
+                    data.addColumn('number', 'Tiempo');
+                    data.addColumn('number', 'Valor');
+                    points.forEach(point => data.addRow(point));
+                    chart.draw(data, options);
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="chat_board">
+        <h4>Chat</h4>
+        <div class="chat-messages">
+            <form action="/send_message" method="post">
+                <label for="message">Escribe aquí:</label>
+                <input id="message" name="message" placeholder="Hola...">
+                <button class="send" type="submit">Enter</button>
+            </form>
+        </div>
+        <label for="text_chat">Chat</label>
+        <div class="text_chat">{{ msg }}</div>
+    </div>
+    <! <div id="chart_div" style="width: 900px; height: 500px;"></div> >
+</body>
+</html>
+
